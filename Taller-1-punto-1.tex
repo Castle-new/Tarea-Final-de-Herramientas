@@ -1,0 +1,93 @@
+\documentclass[fleqn]{article}
+
+%% Created with wxMaxima 20.06.6
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{iftex}
+\ifPDFTeX
+  % PDFLaTeX or LaTeX 
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \DeclareUnicodeCharacter{00B5}{\ensuremath{\mu}}
+\else
+  %  XeLaTeX or LuaLaTeX
+  \usepackage{fontspec}
+\fi
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{grffile}
+\usepackage{ifthen}
+\newsavebox{\picturebox}
+\newlength{\pictureboxwidth}
+\newlength{\pictureboxheight}
+\newcommand{\includeimage}[1]{
+    \savebox{\picturebox}{\includegraphics{#1}}
+    \settoheight{\pictureboxheight}{\usebox{\picturebox}}
+    \settowidth{\pictureboxwidth}{\usebox{\picturebox}}
+    \ifthenelse{\lengthtest{\pictureboxwidth > .95\linewidth}}
+    {
+        \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+    }
+    {
+        \ifthenelse{\lengthtest{\pictureboxheight>.80\textheight}}
+        {
+            \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+            
+        }
+        {
+            \includegraphics{#1}
+        }
+    }
+}
+\newlength{\thislabelwidth}
+\DeclareMathOperator{\abs}{abs}
+\usepackage{animate} % This package is required because the wxMaxima configuration option
+                      % "Export animations to TeX" was enabled when this file was generated.
+
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\begin{document}
+
+\pagebreak{}
+{\Huge {\scshape Ejercicio 3 de la seccion 1.1.6}}
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+
+Realice un código en MAXIMA para el cual, dado tres vectores que formen loslados de un triángulo calcule el centroide (Problema 3 Sección 1.1.6).Trate de hacer este problema de forma que pueda reutilizar su código paratres vectores cualesquiera.
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ \ensuremath{\longrightarrow}  
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+f(a,b,c):=(a+b+c)/3;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o56} 
+\operatorname{f}\left( a\operatorname{,}b\operatorname{,}c\right) \operatorname{:=}\frac{a+b+c}{3}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+La funcion anterrior recibe 3 vectores ya sea en r2 o r3 y me arroja unvector en ese mismo espacio, el cual es el centroide del triangulo que seforma entre a,b,c.
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ \ensuremath{\longrightarrow}  
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+f([2,2],[10,2],[6,8]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o57} 
+[6\operatorname{,}4]\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+\end{document}
